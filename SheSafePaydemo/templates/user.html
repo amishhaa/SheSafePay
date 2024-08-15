@@ -85,7 +85,6 @@
             return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 10);
         }
 
-        // Handle form submission
         document.addEventListener('DOMContentLoaded', function () {
             const userForm = document.getElementById('userForm');
             userForm.addEventListener('submit', async function (event) {
