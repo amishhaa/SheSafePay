@@ -3,12 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merchant Screen</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Merchant Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #444;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
-    <h1>Merchant Payment Screen</h1>
-    <p>Received from: {{ crypto_name }} ({{ last_four_digits }})</p>
-    <p>Amount: ₹{{ amount }}</p>
+    <div class="container">
+        <h1>Payment Received</h1>
+        <p>Transaction ID: <span class="highlight" id="crypto_name"></span></p>
+        <p>Phone Number: <span class="highlight" id="phone_number"></span></p>
+        <p>Amount: <span class="highlight" id="amount"></span></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('crypto_name') && urlParams.has('last_four_digits') && urlParams.has('amount')) {
+                document.getElementById('crypto_name').textContent = urlParams.get('crypto_name');
+                document.getElementById('phone_number').textContent = `****${urlParams.get('last_four_digits')}`;
+                document.getElementById('amount').textContent = urlParams.get('amount');
+            }
+        });
+    </script>
 </body>
 </html>
