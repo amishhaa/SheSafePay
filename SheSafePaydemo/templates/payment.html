@@ -25,7 +25,7 @@
 
         .payment-details {
             position: absolute;
-            width: 10%; /* Adjust width as needed */
+            width: 10%; 
             height: 3.5%; /* Adjust height as needed */
             top: 29.3%; /* Adjust top positioning */
             left: 40%; /* Adjust left positioning */
@@ -44,7 +44,7 @@
             cursor: pointer;
             top: 88%; /* Adjust top positioning */
             left: 35%; /* Adjust left positioning */
-            /*border: 1px solid red; /* Red border for visualization, comment this out later */
+            border: 1px solid red; /* Red border for visualization, comment this out later */
         }
     </style>
 </head>
@@ -52,17 +52,28 @@
     <img src="../pictures/image2.png" alt="Payment Background">
 
     <!-- Input box for payment details -->
-    <input class="payment-details" type="text" placeholder="00.00">
+    <input id="payment-input" class="payment-details" type="text" placeholder="00.00">
 
     <!-- Invisible box for proceeding to payment with red border -->
-    <div class="clickable-area" onclick="proceedToPayment()"></div>
+    <div id="clickable-area" class="clickable-area"></div>
 
     <script>
+        // Add event listener for the clickable area
+        document.getElementById("clickable-area").addEventListener("click", function() {
+            proceedToPayment();
+        });
+
         function proceedToPayment() {
-            window.location.href = "merchant.html";
+            // You can perform additional checks or logic here if needed
+            const paymentValue = document.getElementById("payment-input").value;
+
+            // Redirect to merchant.html if conditions are met
+            if (paymentValue) {
+                window.location.href = "./merchant.html";
+            } else {
+                alert("Please enter an amount.");
+            }
         }
     </script>
 </body>
 </html>
-
-
