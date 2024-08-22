@@ -29,7 +29,7 @@
             height: 7%; 
             top: 17%; 
             left: 40%; 
-            background-color: #1d7d1d; 
+            background-color: #1d7d1d; /* Leaf green */
             color: white;
             font-size: 20px;
             display: flex;
@@ -44,8 +44,16 @@
 </head>
 <body>
     <img src="../pictures/image3.png" alt="Merchant Background">
-    <div class="hash-display">
-        123C6gu628
+    <div class="hash-display" id="hash-box">
+        123C6gu628 <!-- Placeholder hash -->
     </div>
+
+    <script>
+        document.getElementById("hash-box").textContent = generateHash();
+
+        function generateHash() {
+            return Math.random().toString(36).substr(2, 10).toUpperCase();
+        }
+    </script>
 </body>
 </html>
