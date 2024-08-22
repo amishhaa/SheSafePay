@@ -33,16 +33,12 @@
 </head>
 <body>
     <img src="../pictures/image.png" alt="Display Image">
-
-    <!-- Clickable area for redirection -->
-    <div id="clickable-area" class="clickable-area" style="top: 37%; left: 37%;"></div>
+    <div class="clickable-area" onclick="redirectToMerchant()" style="top: 37%; left: 37%;"></div>
 
     <script>
-        document.getElementById("clickable-area").addEventListener("click", function() {
-            // Redirect to payment.html
-            window.location.href = "./payment.html";
-        });
+        function redirectToMerchant() {
+            window.location.href = "payment.html";
+        }
     </script>
 </body>
 </html>
-
