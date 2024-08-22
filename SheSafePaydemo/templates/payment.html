@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .payment-details {
+            position: absolute;
+            width: 10%; /* Adjust width as needed */
+            height: 3.5%; /* Adjust height as needed */
+            top: 29.3%; /* Adjust top positioning */
+            left: 37.5%; /* Adjust left positioning */
+            border: 1px solid transparent;
+            background-color: white; /* Set white background */
+            font-size: 18px;
+            color: black;
+            text-align: center;
+        }
+
+        .clickable-area {
+            position: absolute;
+            width: 30%; /* Adjust width as needed */
+            height: 5%; /* Adjust height as needed */
+            background-color: transparent;
+            cursor: pointer;
+            top: 88%; /* Adjust top positioning */
+            left: 35%; /* Adjust left positioning */
+            /*border: 1px solid red; /* Red border for visualization, comment this out later */
+        }
+    </style>
+</head>
+<body>
+    <img src="../pictures/image2.png" alt="Payment Background">
+
+    <!-- Input box for payment details -->
+    <input class="payment-details" type="text" placeholder="00.00">
+
+    <!-- Invisible box for proceeding to payment with red border -->
+    <div class="clickable-area" onclick="proceedToPayment()"></div>
+
+    <script>
+        function proceedToPayment() {
+            window.location.href = "merchant.html";
+        }
+    </script>
+</body>
+</html>
+
+
